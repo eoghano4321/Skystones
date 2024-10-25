@@ -1,6 +1,5 @@
-# Template
+# Skystones
 ## Introduction
-- Basic project introduction
+- An exploration of networking and AI through the creation of a Skylanders Skystones clone
 
-## Motivation
-- Topics explored or related university modules
+- Using Godot 4
