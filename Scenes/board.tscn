@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhvxfdw0vrcie"]
+
+[ext_resource type="Texture2D" uid="uid://tddwgehywg1q" path="res://Art/Tabletop.png" id="1_selyt"]
+[ext_resource type="Texture2D" uid="uid://bvv14f7xhci68" path="res://icon.svg" id="2_dpnn0"]
+
+[node name="Board" type="Node2D"]
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_selyt")
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("2_dpnn0")

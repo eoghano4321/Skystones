@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://f58q7t7q5ilq"]
+
+[ext_resource type="Texture2D" uid="uid://tddwgehywg1q" path="res://Art/Tabletop.png" id="1_e7jvb"]
+[ext_resource type="Texture2D" uid="uid://bvv14f7xhci68" path="res://icon.svg" id="2_480ey"]
+[ext_resource type="PackedScene" uid="uid://ddvsbcsvgq5wv" path="res://Assets/tile.tscn" id="3_xhl1g"]
+
+[sub_resource type="Environment" id="Environment_xbvw7"]
+background_mode = 1
+background_color = Color(0.0541453, 5.04771e-05, 0.182093, 1)
+background_energy_multiplier = 0.5
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nuv2"]
+albedo_texture = ExtResource("1_e7jvb")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4pbrn"]
+size = Vector2(3.589, 2.05)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jpqlx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1eei"]
+albedo_color = Color(0.321728, 0.321728, 0.321728, 1)
+albedo_texture = ExtResource("2_480ey")
+uv1_scale = Vector3(1.3, 1.3, 1.3)
+uv1_offset = Vector3(0.5, 0, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_aend7"]
+material = SubResource("StandardMaterial3D_x1eei")
+size = Vector3(0.6, 0.05, 0.6)
+
+[node name="World" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 1.27, 0)
+environment = SubResource("Environment_xbvw7")
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+material_override = SubResource("StandardMaterial3D_7nuv2")
+mesh = SubResource("PlaneMesh_4pbrn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+mesh = SubResource("PlaneMesh_jpqlx")
+
+[node name="Tile3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.55, 0, 0)
+mesh = SubResource("BoxMesh_aend7")
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.55, 0, -0.55)
+mesh = SubResource("BoxMesh_aend7")
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.55, 0, 0.55)
+mesh = SubResource("BoxMesh_aend7")
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="Tile" parent="." instance=ExtResource("3_xhl1g")]
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, -0.55)
+mesh = SubResource("BoxMesh_aend7")
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0.55)
+mesh = SubResource("BoxMesh_aend7")
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.55, 0, 0)
+mesh = SubResource("BoxMesh_aend7")
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.55, 0, -0.55)
+mesh = SubResource("BoxMesh_aend7")
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.55, 0, 0.55)
+mesh = SubResource("BoxMesh_aend7")
+skeleton = NodePath("../MeshInstance3D2")
